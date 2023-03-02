@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/Image/peace.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./assets/CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+
+                    'mobile': { 'max': '350px' },
+
+                    'tablet': { 'max': '1023px' },
+
+                },
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="./assets/CSS/style.css">
+    <title>TODO LIST</title>
+</head>
+
+<body class="w-full h-screen font-['Plus Jakarta Sans'] relative overflow-hidden tablet:overflow-auto">
+    <div class="w-4/5 h-screen mx-auto py-[20px]">
+        <div class="flex flex-col tablet:items-center">
+            <div>
+                <img src="./assets/Image/logo.png" alt="" class="w-[120px]">
+            </div>
+            <div class="flex justify-between items-center my-2 tablet:flex-col">
+                <div class="flex gap-1">
+                    <div class="leading-5 text-[#5A5C63] tablet:text-sm">Let's get shit done!</div>
+                    <img src="./assets/Image/peace.png" alt="" class="w-5 h-5">
+                </div>
+                <div
+                    class="leading-5 text-[#5A5C63] cursor-pointer open-form tablet:border-[2px] tablet:border-[#000000] tablet:rounded-[5px] tablet:p-3 tablet:my-3">
+                    <i class="fa-sharp fa-solid fa-plus font-normal"></i>
+                    New task
+                </div>
+            </div>
+        </div>
+        <div class="w-full h-full flex justify-between tablet:flex-col tablet:gap-[30px] content">
+            <div class="w-[30%] tablet:w-[100%]">
+                <div
+                    class="status-bar rounded flex justify-between items-center bg-[#00A6DA] relative after:absolute after:w-full after:bottom-[-15px] after:border after:border-solid after:border-[#00A6DA] tablet:cursor-pointer">
+                    <div class="font-bold leading-5 text-white p-[5px]">Todo</div>
+                    <span
+                        class="bg-[#00CDDA] text-center text-white mr-[10px] rounded w-5 h-5 leading-5 todo-counting"></span>
+                </div>
+                <div
+                    class="flex flex-col mt-[30px] gap-[30px] h-[80%] overflow-y-auto tablet:overflow-y-hidden tablet:h-full list lists-todo" value="todo">
+                </div>
+            </div>
+            <div class="w-[30%] tablet:w-[100%]">
+                <div
+                    class="status-bar rounded flex justify-between items-center bg-[#ccac038f] relative after:absolute after:w-full after:bottom-[-15px] after:border after:border-solid after:border-[#ccac038f] tablet:cursor-pointer">
+                    <div class="font-bold leading-5 text-white p-[5px]">Doing</div>
+                    <span
+                        class="bg-[#DAB700] text-center text-white mr-[10px] rounded w-5 h-5 leading-5 doing-counting"></span>
+                </div>
+                <div
+                    class="flex flex-col mt-[30px] gap-[30px] h-[80%] overflow-y-auto tablet:overflow-y-hidden tablet:h-full list lists-doing" value="doing">
+                </div>
+            </div>
+            <div class="w-[30%] tablet:w-[100%]">
+                <div
+                    class="status-bar rounded flex justify-between items-center bg-[#3BC057] relative after:absolute after:w-full after:bottom-[-15px] after:border after:border-solid after:border-[#3BC057] tablet:cursor-pointer">
+                    <div class="font-bold leading-5 text-white p-[5px]">Finished</div>
+                    <span
+                        class="bg-[#69CE7E] text-center text-white mr-[10px] rounded w-5 h-5 leading-5 finished-counting"></span>
+                </div>
+                <div
+                    class="flex flex-col mt-[30px] gap-[30px] h-[80%] overflow-y-auto tablet:overflow-y-hidden tablet:h-full list lists-finished" value="finished">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-full h-full bg-[#00000066] fixed top-0 right-0 flex justify-center items-center modal invisible">
+        <div class="w-[30%] bg-white modal-container tablet:w-[80%]">
+            <div class="flex justify-center relative my-[10px] text-[#605F60]">
+                <div class="text-[26px] text-heading">Add new todo</div>
+                <i class="fa-solid fa-xmark absolute top-0 right-0 mr-[10px] cursor-pointer close-form"></i>
+            </div>
+            <form class="flex flex-col w-[90%] mx-auto mb-[20px] gap-[10px] form">
+                <input class="border border-black rounded pl-1" type="text" name="category" id="category"
+                    placeholder="Category. Etc. Marketing...">
+                <input class="border border-black rounded pl-1" type="text" name="title" id="title" placeholder="Title">
+                <textarea class="border border-black rounded pl-1" name="text" id="text" cols="" rows="4"
+                    placeholder="Content"></textarea>
+                <div class="hidden justify-evenly gap-10 text-[#605F60] radio-btn">
+                    <div class="todo">
+                        <input type="radio" name="radio" value="todo">
+                        <label for="todo">To do</label>
+                    </div>
+                    <div class="doing">
+                        <input type="radio" name="radio" value="doing">
+                        <label for="doing">Doing</label>
+                    </div>
+                    <div class="finished">
+                        <input type="radio" name="radio" value="finished">
+                        <label for="finished">Finished</label>
+                    </div>
+                </div>
+                <button class="bg-[#EDEBED] border-[1px] border-black border-solid rounded" id="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

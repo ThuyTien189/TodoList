@@ -1,0 +1,15 @@
+.lists-todo::-webkit-scrollbar,
+.lists-doing::-webkit-scrollbar,
+.lists-finished::-webkit-scrollbar {
+    width: 4px;
+    background-color: #fff;
+} 
+.lists-todo::-webkit-scrollbar-thumb,
+.lists-doing::-webkit-scrollbar-thumb,
+.lists-finished::-webkit-scrollbar-thumb {
+    background-color: #B6B5B6;
+    border-radius: 2px;
+}
+.dragging {
+    opacity: 0.4;
+}
